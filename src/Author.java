@@ -10,14 +10,14 @@
  */
 public class Author {
 
-    private int authorID;
+    private String authorID;
     private String author;
 
-    public int getAuthorID() {
+    public String getAuthorID() {
         return authorID;
     }
 
-    public void setAuthorID(int authorID) {
+    public void setAuthorID(String authorID) {
         this.authorID = authorID;
     }
 
@@ -29,7 +29,7 @@ public class Author {
         this.author = author;
     }
 
-    public Author(int authorID, String author) {
+    public Author(String authorID, String author) {
         this.authorID = authorID;
         this.author = author;
     }

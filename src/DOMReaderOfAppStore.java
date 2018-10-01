@@ -18,7 +18,7 @@ public class DOMReaderOfAppStore {
 
         NodeList xmlApps = xmlAppStore.getChildNodes();
         for (int i = 0; i < xmlApps.getLength(); i++) {
-            
+
             Node xmlApp = xmlApps.item(i);
 
             if ((xmlApp instanceof Element)
@@ -33,8 +33,36 @@ public class DOMReaderOfAppStore {
     private App createApp(Element xmlApp) {
 
         App app = new App();
-        String id =         
+        String id = xmlApp.getAttribute("id");
+
+        Element name = vratPodelement(xmlApp, "Name");
+        app.setName(name.getTextContent());
+
+        Element description = vratPodelement(xmlApp, "Description");
+        app.setDescription(description.getTextContent());
+
+        Element category = vratPodelement(xmlApp, "Category");
+        app.setCategory(category.getTextContent());
+
+        /*
         
+        Tu to nemam teraz dokocene... 
+        Treba tu spravit este k autorovi xmlAuthor
+        A doplnit cele metody createReview a create Distributable
+        
+        */
+        Element author = vratPodelement(xmlApp, "Author");
+
+        return app;
+    }
+
+    private Author createAuthor(Element xmlAuthor) {
+
+        String id = xmlAuthor.getAttribute("id");
+        String name = xmlAuthor.getAttribute("Author");
+        Author author = new Author(id, name);
+
+        return author;
     }
 
     private Element vratPodelement(Element xmlElement, String nazovElementu) {
