@@ -24,10 +24,10 @@ public class DOMReaderOfAppStore {
             if ((xmlApp instanceof Element)
                     && ("App".equals(xmlApp.getNodeName()))) {
                 App newApp = createApp((Element) xmlApp);
-                AppStore.getApps().add(newApp);
+                appStore.getApps().add(newApp);
             }
         }
-        return AppStore;
+        return appStore;
     }
 
     private App createApp(Element xmlApp) {
