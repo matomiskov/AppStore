@@ -1,32 +1,33 @@
-
 import java.util.*;
 
 /**
+ * Aplikacia v zozname aplikacii
  *
- * @author martin
+ * AppStore > App
+ *
+ * @author Miškov, Ďuraš
  */
-//aplikacia v zozname aplikacii
 public class App {
 
-    //id aplikacie
+    // Id aplikacie
     private int id;
 
-    //nazov aplikacie
+    // Nazov aplikacie
     private String name;
 
-    //popis aplikacie
+    // Popis aplikacie, moze obsahovat HTML
     private String description;
 
-    //autor aplikacie
+    // Meno autora aplikacie
     private Author author;
 
-    //kategoria
+    // Volitelna kategoria
     private String category;
 
-    //zoznam distribucii
+    // Zoznam distribuovatelnych suborov
     private final List<Distributable> distributables = new ArrayList<Distributable>();
 
-    //zoznam hodnoteni
+    // Zoznam hodnoteni
     private final List<Review> reviews = new ArrayList<Review>();
 
     public int getId() {
@@ -57,7 +58,7 @@ public class App {
         return author;
     }
 
-    public void setAutor(Author author) {
+    public void setAuthor(Author author) {
         this.author = author;
     }
 
@@ -73,24 +74,35 @@ public class App {
         return distributables;
     }
 
+    public void addDistributable(Distributable newDist) {
+    	this.distributables.add(newDist);
+    }
+
     public List<Review> getReviews() {
         return reviews;
     }
 
+    public void addReview(Review newReview) {
+    	this.reviews.add(newReview);
+    }
+
     public void vypis() {
-        System.out.println(name + ". App ID: " + id + ". Category: " + category + ". " + author.toString());
+        System.out.print(this.name + " (ID: " + this.id + ") by " + author.toString() + ".");
+
+        if (this.category != null) {
+        	System.out.println(" Category: " + category + ".");
+        } else {
+        	System.out.println(" Uncategorized.");
+        }
         System.out.println("Description: " + description);
 
-        if (!distributables.isEmpty()) {
-            for (Distributable distributable : distributables) {
-                System.out.println(distributable.toString());
-            }
+        for (Distributable distributable : distributables) {
+        	System.out.println(distributable.toString());
         }
         System.out.println();
-        if (!reviews.isEmpty()) {
-            for (Review review : reviews) {
-                System.out.println(review.toString());
-            }
+
+        for (Review review : reviews) {
+            System.out.println(review.toString());
         }
         System.out.println();
     }

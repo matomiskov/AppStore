@@ -1,23 +1,27 @@
-
-import java.text.SimpleDateFormat;
+import java.time.OffsetDateTime;
+import java.time.format.DateTimeParseException;
 import java.util.Date;
-import java.util.Locale;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 /**
+ * App Distributable
  *
- * @author martin
+ * AppStore > App > Distributables > Distributable
+ *
+ * @author Miškov, Ďuraš
  */
 public class Distributable {
 
+	// Meno suboru, vratane pripony
     private String file;
+
+    // Verzia, ktora nesleduje semver specifikaciu
     private String version;
+
+    // Architektura na ktoru je buildnuta, moze byt 'arm', 'arm64' alebo 'x86'
     private String arch;
-    private String DateTime;
+
+    // Datum a cas vytvorenia
+    private Date dateTime;
 
     public String getFile() {
         return file;
@@ -31,35 +35,41 @@ public class Distributable {
         return version;
     }
 
-    public void setVersion(String version) {
-        this.version = version;
+    public void setVersion(String version) throws RuntimeException {
+    	// Nasleduje to semver specifikaciu?
+    	boolean semverMatch = version.matches(
+    		"^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$"
+    	);
+
+    	if (!semverMatch) {
+    		throw new RuntimeException("Verzia Distributable nenasleduje semver specifikaciu.");
+    	}
+    	
+    	this.version = version;
     }
 
     public String getArch() {
         return arch;
     }
 
-    public void setArch(String arch) {
-        this.arch = arch;
+    public void setArch(String arch) throws RuntimeException {
+    	if (!(arch.equals("arm") || arch.equals("arm64") || arch.equals("x86"))) {
+    		throw new RuntimeException("Architektura Distributable moze byt len 'arm', 'arm64' alebo 'x86'.");
+    	}
+
+    	this.arch = arch;
     }
 
-    public String getDateTime() {
-        return DateTime;
+    public Date getDateTime() {
+        return dateTime;
     }
 
-    public void setDateTime(String DateTime) {
-        this.DateTime = DateTime;
+    public void setDateTime(String dateTime) throws DateTimeParseException {
+    	this.dateTime = Date.from(OffsetDateTime.parse(dateTime).toInstant());
     }
 
     public String toString() {
-        SimpleDateFormat ISO8601DATEFORMAT = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ", Locale.GERMANY);
-        String date = DateTime.replaceAll("\\+0([0-9]){1}\\:00", "+0$100");
-        Date d = new Date();
-        try {
-            d = ISO8601DATEFORMAT.parse(date);
-        } catch (Exception e) {
-        }
-        return "File: " + file + ". Version: " + version + ". Arch: " + arch + ". DateTime:" + d;
+        return "Distributable: " + file + " v" + version + " (arch: " + arch + ") created " + dateTime.toString();
     }
 
 }

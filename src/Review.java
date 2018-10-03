@@ -1,30 +1,38 @@
-
-import java.text.SimpleDateFormat;
+import java.time.OffsetDateTime;
+import java.time.format.DateTimeParseException;
 import java.util.Date;
-import java.util.Locale;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 /**
+ * App Review
  *
- * @author martin
+ * AppStore > App > Reviews > Review
+ * 
+ * @author Miškov, Ďuraš
  */
 public class Review {
 
+	// Hodnotenie od 1 do 5 ako cele cislo
     private int rating;
+
+    // Volitelny komentar
     private String comment;
-    private String name;
-    private String dateTime;
+
+    // Meno autora
+    private String author;
+
+    // Datum a cas vytvorenia
+    private Date dateTime;
 
     public int getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
-        this.rating = rating;
+    public void setRating(int rating) throws RuntimeException {
+    	if (rating < 1 || rating > 5) {
+    		throw new RuntimeException("Rating musi byt cele cislo medzi 1 a 5.");
+    	}
+
+    	this.rating = rating;
     }
 
     public String getComment() {
@@ -35,30 +43,35 @@ public class Review {
         this.comment = comment;
     }
 
-    public String getName() {
-        return name;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
-    public String getDateTime() {
+    public Date getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(String dateTime) {
-        this.dateTime = dateTime;
+    public void setDateTime(String dateTime) throws DateTimeParseException {
+    	this.dateTime = Date.from(OffsetDateTime.parse(dateTime).toInstant());
     }
 
     public String toString() {
-        SimpleDateFormat ISO8601DATEFORMAT = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ", Locale.GERMANY);
-        String date = dateTime.replaceAll("\\+0([0-9]){1}\\:00", "+0$100");
-        Date d = new Date();
-        try {
-            d = ISO8601DATEFORMAT.parse(date);
-        } catch (Exception e) {
-        }
-        return "Rating: " + rating + ". Comment: " + comment + ". Name: " + name + ". DateTime: " + d;
+    	String authorName;
+    	if (author != null) {
+    		authorName = author;
+    	} else {
+    		authorName = "Anonym";
+    	}
+    	String review = rating + "/5 stars from " + authorName + " on " + dateTime.toString() + ".";
+    	
+    	if (comment != null) {
+    		review = review + " Comment: \"" + comment + "\"";
+    	}
+    	
+    	return review;
     }
 }

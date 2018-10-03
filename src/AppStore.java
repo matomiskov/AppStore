@@ -1,29 +1,33 @@
-
 import java.util.*;
 
 /**
+ * Korenovy element AppStore
  *
- * @author martin
+ * @author Miškov, Ďuraš
  */
-// AppStore
 public class AppStore {
 
-    //zoznam aplikacii
+    // Zoznam aplikacii
     private final List<App> apps = new ArrayList<App>();
 
     public List<App> getApps() {
         return apps;
     }
 
-    //vytvori novy AppStore
+    public void addApp(App newApp) {
+    	this.apps.add(newApp);
+    }
+
+    // Vytvori novy AppStore
     public AppStore() {
     }
 
-    //vypise aplikacie
+    // Vypise aplikacie
     public void vypis() {
         System.out.println("List of applications in AppStore:");
         for (App app : apps) {
-            app.vypis();
+        	System.out.println("-----------------------------");
+        	app.vypis();
         }
     }
 }

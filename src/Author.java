@@ -1,40 +1,37 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
+ * Application author
  *
- * @author martin
+ * AppStore > App > Author
+ * 
+ * @name Miškov, Ďuraš
  */
 public class Author {
 
-    private int authorID;
-    private String author;
+    private int id;
+    private String name;
 
-    public int getAuthorID() {
-        return authorID;
+    public int getId() {
+        return id;
     }
 
-    public void setAuthorID(int authorID) {
-        this.authorID = authorID;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getAuthor() {
-        return author;
+    public String getName() {
+        return name;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Author(int authorID, String author) {
-        this.authorID = authorID;
-        this.author = author;
+    public Author(int id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
     public String toString() {
-        return "Author: " + author + ", ID: " + authorID + ".";
+        return "Author: " + name + " (ID: " + id + ")";
     }
 }
