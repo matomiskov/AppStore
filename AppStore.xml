@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AppStore>
+    <App id="44567891">
+        <Name>Just Another Game</Name>
+        <Description>
+            <![CDATA[This is the only game you <b>want to</b> play.]]>
+        </Description>
+        <Author id="789165">John Doe</Author>
+        <Category>Games</Category>
+        <Distributables>
+            <Distributable>
+                <File>production_894.apk</File>
+                <Version>2.1.1</Version>
+                <Arch>arm64</Arch>
+                <DateTime>2018-09-29T14:29Z</DateTime>
+            </Distributable>
+            <Distributable>
+                <File>production_121.apk</File>
+                <Version>1.0.0</Version>
+                <Arch>arm64</Arch>
+                <DateTime>2018-05-24T16:01Z</DateTime>
+            </Distributable>
+        </Distributables>
+        <Reviews>
+            <Review>
+                <Rating>1</Rating>
+                <Comment>Very bad. After last update the game cannot be started.</Comment>
+                <DateTime>2018-09-29T14:29Z</DateTime>
+            </Review>
+            <Review>
+                <Rating>5</Rating>
+                <Comment>This game changed my life!</Comment>
+                <DateTime>2018-09-29T14:35Z</DateTime>
+            </Review>
+        </Reviews>
+    </App>
+    <App id="467891">
+        <Name>Best Game Ever</Name>
+        <Description>
+            <![CDATA[This is the <b>Best Game Ever</b>.]]>
+        </Description>
+        <Author id="215455">John Doe II.</Author>
+        <Category>Games</Category>
+        <Distributables>
+            <Distributable>
+                <File>build-293.apk</File>
+                <Version>2.3.1</Version>
+                <Arch>arm64</Arch>
+                <DateTime>2018-01-12T10:03Z</DateTime>
+            </Distributable>
+            <Distributable>
+                <File>build-137.apk</File>
+                <Version>1.1.0</Version>
+                <Arch>arm64</Arch>
+                <DateTime>2017-12-20T10:11Z</DateTime>
+            </Distributable>
+        </Distributables>
+        <Reviews>
+            <Review>
+                <Rating>5</Rating>
+                <Comment>This is the best game ever. I know it. I created this game.</Comment>
+                <DateTime>2017-12-29T11:00Z</DateTime>
+                <Author>John Doe II.</Author>
+            </Review>
+            <Review>
+                <Rating>3</Rating>
+                <DateTime>2018-01-13T02:15Z</DateTime>
+            </Review>
+        </Reviews>
+    </App>
+    <App id="125421">
+        <Name>Life Hacks</Name>
+        <Description>
+            <![CDATA[DOWNLOAD THIS NOW TO CHANGE YOUR LIFE FOREVER]]>
+        </Description>
+        <Author id="666">It's Just a Business Ltd.</Author>
+        <Category>Productivity</Category>
+        <Distributables>
+            <Distributable>
+                <File>demo.apk</File>
+                <Version>1.0.0</Version>
+                <Arch>arm64</Arch>
+                <DateTime>2016-06-06T06:06Z</DateTime>
+            </Distributable>
+        </Distributables>
+        <Reviews></Reviews>
+    </App>
+    <App id="988956">
+        <Name>Shopping list</Name>
+        <Description>
+            <![CDATA[<b>The best Shopping list</b>]]>
+        </Description>
+        <Author id="789165">matomiskov</Author>
+        <Category>Shopping</Category>
+        <Distributables>
+            <Distributable>
+                <File>shopping-matomiskov-sk-1-2-8.apk</File>
+                <Version>1.2.8</Version>
+                <Arch>arm64</Arch>
+                <DateTime>2017-02-25T13:54Z</DateTime>
+            </Distributable>
+        </Distributables>
+        <Reviews>
+            <Review>
+                <Rating>5</Rating>
+                <Comment>This i the best shopping list.</Comment>
+                <DateTime>2018-01-15T20:02Z</DateTime>
+            </Review>
+            <Review>
+                <Rating>5</Rating>
+                <DateTime>2017-03-19T18:28Z</DateTime>
+            </Review>
+        </Reviews>
+    </App>
+    <App id="122545">
+        <Name>Attendance system</Name>
+        <Description>
+            <![CDATA[You probably "don't need" >this<.]]>
+        </Description>
+        <Author id="789165">Jakub Duras</Author>
+        <Distributables>
+            <Distributable>
+                <File>att.sys.101.apk</File>
+                <Version>1.0.1</Version>
+                <Arch>arm64</Arch>
+                <DateTime>2018-09-30T12:25Z</DateTime>
+            </Distributable>
+            <Distributable>
+                <File>att.sys.100.apk</File>
+                <Version>1.0.0</Version>
+                <Arch>arm64</Arch>
+                <DateTime>2018-09-02T12:01Z</DateTime>
+            </Distributable>
+        </Distributables>
+        <Reviews>
+            <Review>
+                <Rating>5</Rating>
+                <Comment>Very good app. I use it daily.</Comment>
+                <DateTime>2018-09-12T14:15Z</DateTime>
+                <Author>Mr. Positive</Author>
+            </Review>
+            <Review>
+                <Rating>1</Rating>
+                <Comment>How use this ap?</Comment>
+                <DateTime>2018-09-12T14:15Z</DateTime>
+                <Author>Me</Author>
+            </Review>
+        </Reviews>
+    </App>
+    <App id="789321">
+        <Name>Precise Timer</Name>
+        <Description>
+            <![CDATA[Timer. Nothing <i>more</i> nothing <i>less</i>.]]>
+        </Description>
+        <Author id="1">Steve Robota</Author>
+        <Category>Productivity</Category>
+        <Distributables>
+            <Distributable>
+                <File>export_2017-05-01.apk</File>
+                <Version>0.1.0</Version>
+                <Arch>arm64</Arch>
+                <DateTime>2017-06-02T12:01Z</DateTime>
+            </Distributable>
+        </Distributables>
+        <Reviews></Reviews>
+    </App>
+</AppStore>
