@@ -1,5 +1,6 @@
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 /*
@@ -53,10 +54,11 @@ public class Review {
     public String toString() {
         SimpleDateFormat ISO8601DATEFORMAT = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ", Locale.GERMANY);
         String date = dateTime.replaceAll("\\+0([0-9]){1}\\:00", "+0$100");
+        Date d = new Date();
         try {
-            ISO8601DATEFORMAT.parse(date);
+            d = ISO8601DATEFORMAT.parse(date);
         } catch (Exception e) {
         }
-        return "Rating: " + rating + ". Comment: " + comment + ". Name: " + name + ". DateTime: " + ISO8601DATEFORMAT;
+        return "Rating: " + rating + ". Comment: " + comment + ". Name: " + name + ". DateTime: " + d;
     }
 }
