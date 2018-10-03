@@ -50,17 +50,60 @@ public class DOMReaderOfAppStore {
         Treba tu spravit este k autorovi xmlAuthor
         A doplnit cele metody createReview a create Distributable
         
-        */
-        Element author = vratPodelement(xmlApp, "Author");
-
+         */
+        //  Element author = vratPodelement(xmlApp, "Author");
         return app;
+    }
+
+    private Distributable createDistributable(Element xmlDistributable) {
+        Distributable distributable = new Distributable();
+
+        Element file = vratPodelement(xmlDistributable, "File");
+        distributable.setFile(file.getTextContent());
+
+        Element version = vratPodelement(xmlDistributable, "Version");
+        distributable.setVersion(version.getTextContent());
+
+        Element arch = vratPodelement(xmlDistributable, "Arch");
+        distributable.setArch(arch.getTextContent());
+
+        Element dateTime = vratPodelement(xmlDistributable, "DateTime");
+        distributable.setDateTime(dateTime.getTextContent());
+
+        return distributable;
+    }
+
+    private Review createReview(Element xmlReview) {
+        Review review = new Review();
+
+        Element rating = vratPodelement(xmlReview, "Rating");
+        if (rating != null) {
+            review.setRating(Integer.parseInt(rating.getTextContent()));
+        }
+
+        Element comment = vratPodelement(xmlReview, "Comment");
+        if (comment != null) {
+            review.setComment(comment.getTextContent());
+        }
+
+        Element name = vratPodelement(xmlReview, "Name");
+        if (name != null) {
+            review.setName(name.getTextContent());
+        }
+
+        Element dateTime = vratPodelement(xmlReview, "DateTime");
+        if (dateTime != null) {
+            review.setDateTime(dateTime.getTextContent());
+        }
+
+        return review;
     }
 
     private Author createAuthor(Element xmlAuthor) {
 
         String id = xmlAuthor.getAttribute("id");
         String name = xmlAuthor.getAttribute("Author");
-        Author author = new Author(id, name);
+        Author author = new Author(Integer.parseInt(id), name);
 
         return author;
     }

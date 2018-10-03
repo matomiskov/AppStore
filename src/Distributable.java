@@ -1,9 +1,12 @@
+
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author martin
@@ -48,7 +51,13 @@ public class Distributable {
     }
 
     public String toString() {
-        return "File: " + file + ". Version: " + version + ". Arch: " + arch + ". DateTime:" + DateTime;
+        SimpleDateFormat ISO8601DATEFORMAT = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ", Locale.GERMANY);
+        String date = DateTime.replaceAll("\\+0([0-9]){1}\\:00", "+0$100");
+        try {
+            ISO8601DATEFORMAT.parse(date);
+        } catch (Exception e) {
+        }
+        return "File: " + file + ". Version: " + version + ". Arch: " + arch + ". DateTime:" + ISO8601DATEFORMAT;
     }
 
 }
